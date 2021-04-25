@@ -2,6 +2,8 @@ package com.webmvc.smarthousemanagementsystem.app.config;
 
 import java.util.Arrays;
 import java.util.Collection;
+import com.webmvc.smarthousemanagementsystem.app.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -19,8 +21,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    // @Autowired
-    // private UserService userService;
+    @Autowired
+    private UserService userService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -32,49 +34,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @SuppressWarnings({"deprecation"})
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    public PasswordEncoder getPasswordEncoder() {
         return NoOpPasswordEncoder.getInstance();
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser(new UserDetails() {
-            @Override
-            public Collection<? extends GrantedAuthority> getAuthorities() {
-                // TODO Auto-generated method stub
-                return Arrays.asList(new SimpleGrantedAuthority("USER"));
-            }
-
-            @Override
-            public String getPassword() {
-                return "u";
-            }
-
-            @Override
-            public String getUsername() {
-                return "u@mail.ru";
-            }
-
-            @Override
-            public boolean isAccountNonExpired() {
-                return true;
-            }
-
-            @Override
-            public boolean isAccountNonLocked() {
-                return Boolean.TRUE;
-            }
-
-            @Override
-            public boolean isCredentialsNonExpired() {
-                return Boolean.TRUE;
-            }
-
-            @Override
-            public boolean isEnabled() {
-                return Boolean.TRUE;
-            }
-        });
+        auth.userDetailsService(userService).passwordEncoder(getPasswordEncoder());
     }
 
 

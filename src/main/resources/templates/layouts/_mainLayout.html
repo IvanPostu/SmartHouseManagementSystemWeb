@@ -1,71 +1,109 @@
 <!DOCTYPE html>
-<html lang="en" th:fragment="layout (content)" xmlns:th="http://www.thymeleaf.org"  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html
+  lang="en"
+  th:fragment="layout (content)"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart house management system</title>
+    <!-- MDB -->
+    <link rel="stylesheet" th:href="@{/static/mdb/css/mdb.min.css}" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Title</title>
-  <!-- MDB -->
-  <link rel="stylesheet" th:href="@{/static/mdb/css/mdb.min.css}" />
+    <script
+      type="text/javascript"
+      th:src="@{/static/turbolinks-5.0/turbolinks.js}"
+    ></script>
 
-  <script type="text/javascript" th:src="@{/static/turbolinks-5.0/turbolinks.js}"></script>
+    <script
+      defer
+      type="text/javascript"
+      th:src="@{/static/fontawesome-free-5.15.1-web/js/all.min.js}"
+    ></script>
+    <!-- MDB -->
+    <script
+      defer
+      type="text/javascript"
+      th:src="@{/static/mdb/js/mdb.min.js}"
+    ></script>
 
-  <script defer type="text/javascript" th:src="@{/static/fontawesome-free-5.15.1-web/js/all.min.js}"></script>
-  <!-- MDB -->
-  <script defer type="text/javascript" th:src="@{/static/mdb/js/mdb.min.js}"></script>
+    <style>
+      .turbolinks-progress-bar {
+        height: 5px;
+        background-color: rgb(12, 235, 243);
+      }
+    </style>
+  </head>
 
-  <style>
-    .turbolinks-progress-bar {
-      height: 5px;
-      background-color: rgb(12, 235, 243);
-    }
-  </style>
-</head>
-
-<body style="background-color: #ECEFF1;">
-
-  <nav  class="navbar navbar-expand-lg navbar-light bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand text-white" href="/"><strong>Smart house management system</strong></a>
-      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarText"
-        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active text-white" href="/">Pagina principală</a>
-          </li>
-          <!-- <li th:if="${#authorization.expression('isAuthenticated()')}" class="nav-item">
-            <a class="nav-link" th:href="@{/home/publishers}">Companii editori</a>
-          </li>
-          <li th:if="${#authorization.expression('isAuthenticated()')}" class="nav-item">
-            <a class="nav-link " th:href="@{/home/publicities}">Publicități</a>
-          </li> -->
-         
-        </ul>
-        <ul class="navbar-nav float-right">
-          <li class="nav-item">
-            <a th:text="(${#authorization.expression('isAuthenticated()')}? 
-            ${#authentication.getPrincipal().getUsername()} : 'Sign In')" class="nav-link text-white" th:href="(${#authorization.expression('isAuthenticated()')}? 
-            @{/user/info} : @{/login})"></a>
-          </li>
-        </ul>
+  <body style="background-color: #eceff1">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white" href="/"
+          ><strong>Smart house management system</strong></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#navbarText"
+          aria-controls="navbarText"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active text-white" href="/">
+                Pagina principală
+              </a>
+            </li>
+            <li
+              th:if="${#authorization.expression('isAuthenticated()')}"
+              class="nav-item"
+            >
+              <a class="nav-link active text-white" href="/">
+                Schema grafică casei
+              </a>
+            </li>
+            <li
+              th:if="${#authorization.expression('isAuthenticated()')}"
+              class="nav-item"
+            >
+              <a class="nav-link active text-white" href="/">
+                Vizualizare loguri
+              </a>
+            </li>
+          </ul>
+          <ul class="navbar-nav float-right">
+            <li class="nav-item">
+              <a
+                th:text="(${#authorization.expression('isAuthenticated()')}? 
+            ${#authentication.getPrincipal().getUsername()} : 'Sign In')"
+                class="nav-link text-white"
+                th:href="(${#authorization.expression('isAuthenticated()')}? 
+            @{/user/info} : @{/login})"
+              ></a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <main class="w-100 p-3" style="min-height: 100vh;">
-    <th:block th:replace="${content}"></th:block>
-  </main>
+    <main class="w-100 p-3" style="min-height: 100vh">
+      <th:block th:replace="${content}"></th:block>
+    </main>
 
-  <footer class="bg-light text-center text-lg-start">
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-      © 2020 Copyright:
-      <a class="text-dark" href="https://mdbootstrap.com/">Smart house management system</a>
-    </div>
-  </footer>
-
-</body>
-
+    <footer class="bg-light text-center text-lg-start">
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2020 Copyright:
+        <a class="text-dark" href="https://mdbootstrap.com/"
+          >Smart house management system</a
+        >
+      </div>
+    </footer>
+  </body>
 </html>

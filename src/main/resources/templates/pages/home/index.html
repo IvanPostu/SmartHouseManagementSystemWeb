@@ -2,185 +2,81 @@
   xmlns:th="http://www.thymeleaf.org"
   xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
   th:replace="~{layouts/_mainLayout :: layout( ~{::section#body} )}"
-  
 >
-  <section id="body">
-    <div class="container my-5">
-      <section>
-        <div class="row p-2">
-          <div class="col">
-            <div class="card">
-              <div
-                class="bg-image hover-overlay ripple"
-                data-mdb-ripple-color="light"
-              >
-                <img
-                  src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
-                  class="img-fluid"
-                />
-                <a href="#!">
-                  <div
-                    class="mask"
-                    style="background-color: rgba(251, 251, 251, 0.15)"
-                  ></div>
-                </a>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#!" class="btn btn-primary">Button</a>
-              </div>
-            </div>
+  <section id="body" class="container my-5">
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col mt-3">
+        <div class="card">
+          <img
+            style="max-height: 200px"
+            th:src="@{/static/images/q1.jpg}"
+            class="img-fluid"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Umeditatea aerului</h5>
+            <p class="card-text">
+              Datele colectate de la senzorii responsabili de măsurarea
+              umedității aerului v-or fi vizualizare și v-a fi oferit funcțional
+              pentru manipulare cu datele colectate.
+            </p>
+            <a class="btn btn-primary" href="#" role="button">Accesează pagina</a>
           </div>
-          <div class="col">
-            <div class="card">
-              <div
-                class="bg-image hover-overlay ripple"
-                data-mdb-ripple-color="light"
-              >
-                <img
-                  src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
-                  class="img-fluid"
-                />
-                <a href="#!">
-                  <div
-                    class="mask"
-                    style="background-color: rgba(251, 251, 251, 0.15)"
-                  ></div>
-                </a>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#!" class="btn btn-primary">Button</a>
-              </div>
-            </div>
+        </div>
+      </div>
+      <div class="col mt-3">
+        <div class="card">
+          <img
+            th:src="@{/static/images/q4.jpg}"
+            style="max-height: 200px"
+            class="img-fluid"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Camere de supraveghere</h5>
+            <p class="card-text">
+              Afișarea video realtime de la orice cameră plasată pe teritoriul
+              și în afara teritriului casei dvs.
+            </p>
+            <a class="btn btn-primary" href="#" role="button">Accesează pagina</a>
           </div>
-          <div class="col">
-            <div class="card">
-              <div
-                class="bg-image hover-overlay ripple"
-                data-mdb-ripple-color="light"
-              >
-                <img
-                  src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
-                  class="img-fluid"
-                />
-                <a href="#!">
-                  <div
-                    class="mask"
-                    style="background-color: rgba(251, 251, 251, 0.15)"
-                  ></div>
-                </a>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#!" class="btn btn-primary">Button</a>
-              </div>
+        </div>
+      </div>
+      <div class="col mt-3">
+        <div class="card">
+          <img
+            th:src="@{/static/images/q2.jpg}"
+            class="img-fluid"
+            style="max-height: 200px"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Temperatura aerului</h5>
+            <p class="card-text">
+              Datele colectate de la senzorii responsabili de măsurarea
+              temperaturii aerului v-or fi vizualizare și v-a fi oferit
+              funcțional pentru manipulare cu datele colectate.
+            </p>
+            <a class="btn btn-primary" href="#" role="button">Accesează pagina</a>
+          </div>
+        </div>
+        <div class="col mt-3">
+          <div class="card">
+            <img
+              th:src="@{/static/images/q3.jpg}"
+              class="img-fluid"
+              style="max-height: 200px"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Nivelul de radiație</h5>
+              <p class="card-text">
+                Datele colectate de la senzorii responsabili de măsurarea
+                nivelului de radiație v-or fi vizualizare și v-a fi oferit
+                funcțional pentru manipulare cu datele colectate.
+              </p>
+              <a class="btn btn-primary" href="#" role="button">Accesează pagina</a>
             </div>
           </div>
         </div>
-
-        <div class="row p-2">
-          <div class="col">
-            <div class="card">
-              <div
-                class="bg-image hover-overlay ripple"
-                data-mdb-ripple-color="light"
-              >
-                <img
-                  src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
-                  class="img-fluid"
-                />
-                <a href="#!">
-                  <div
-                    class="mask"
-                    style="background-color: rgba(251, 251, 251, 0.15)"
-                  ></div>
-                </a>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#!" class="btn btn-primary">Button</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div
-                class="bg-image hover-overlay ripple"
-                data-mdb-ripple-color="light"
-              >
-                <img
-                  src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
-                  class="img-fluid"
-                />
-                <a href="#!">
-                  <div
-                    class="mask"
-                    style="background-color: rgba(251, 251, 251, 0.15)"
-                  ></div>
-                </a>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#!" class="btn btn-primary">Button</a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div
-                class="bg-image hover-overlay ripple"
-                data-mdb-ripple-color="light"
-              >
-                <img
-                  src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
-                  class="img-fluid"
-                />
-                <a href="#!">
-                  <div
-                    class="mask"
-                    style="background-color: rgba(251, 251, 251, 0.15)"
-                  ></div>
-                </a>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#!" class="btn btn-primary">Button</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h1 th:if="${#authorization.expression('!isAuthenticated()')}" class="">
-          Pentru a gestiona casa intelegentă este necesar de autentificat
-        </h1>
-      </section>
+      </div>
     </div>
   </section>
 </html>

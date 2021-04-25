@@ -91,6 +91,19 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-maven-plugin</artifactId>
+        <version>6.2.2</version>
+        <configuration>
+          <driver>com.mysql.cj.jdbc.Driver</driver>
+          <url>jdbc:mysql://127.0.0.1:3306/smarthouse_db?serverTimezone=UTC&#38;useSSL=false</url>
+          <user>app_user</user>
+          <password>qwerty</password>
+          <connectRetries>10</connectRetries>
+      </configuration>
+    </plugin>
+    
+      <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
